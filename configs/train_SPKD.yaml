@@ -1,0 +1,28 @@
+
+# 
+save_dir: SPKD # 
+KD: SPKD # Knowledge Distillation type choices : [NST, OFD, SPKD]
+
+# resume
+checkpoint: '' # resume checkpoint 
+
+lr: 0.01
+lr_step: 10
+optimizer : Adam
+weight_decay: 0.0 # optimizer weight decay
+mom: 0.9 # optimizer momentum
+batch_size: 1
+n_feature: 32 
+
+# For prune
+prune_epoch: 15
+bns: 0.00001 # sparsity params
+prune_rate: 0.5
+pruning_ckt: checkpoint_15.tar
+
+# For pruned
+pruned_cfg: pruned.tar
+pruned_epoch: 30
+
+Test_ckt: BEST_pruned.tar
+Test_save_dir: pruend_SPKD
